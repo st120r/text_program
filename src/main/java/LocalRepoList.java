@@ -1,12 +1,17 @@
 package src.main.java;
 
-public class LocalRepoList {
-    public static String[] splitText(String text) {
-        return text.split("[ ,.!?:;()\"\']+");
-    }
+import java.util.ArrayList;
 
-    @Override
-    public String toString() {
-        return "LocalRepoList{}";
+public class LocalRepoList {
+
+    private static ArrayList list = new ArrayList();
+
+    public static ArrayList splitText(String text) {
+        for (String s : text.split("[ ,.!?:;()\"\']+")) {
+            if (!list.contains(s)) {
+                list.add(s);
+            }
+        }
+        return list;
     }
 }
